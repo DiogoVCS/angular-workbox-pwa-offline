@@ -1,0 +1,13 @@
+<input
+  #newList
+  (keyup.enter)="addList(newList.value)"
+  (blur)="addList(newList.value); newList.value = ''"
+/>
+
+<button (click)="addList(newList.value)">Add</button>
+
+<ul>
+  <li *ngFor="let list of lists">
+    {{list._id}} | {{ list.title }} |<button (click)="removeList(list._id)">Remove</button>
+  </li>
+</ul>
