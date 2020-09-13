@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { List } from './list.model';
+import { IList } from './list.model';
 
 @Injectable({
   providedIn: 'root',
@@ -13,13 +13,13 @@ export class ListsService {
     return this.httpClient.get(`http://localhost:3000/lists/${id}`);
   }
 
-  getAll(): Observable<List[]> {
-    return this.httpClient.get<List[]>(`http://localhost:3000/lists/`);
+  getAll(): Observable<IList[]> {
+    return this.httpClient.get<IList[]>(`http://localhost:3000/lists/`);
   }
 
-  createList(list: List): Observable<List> {
+  createList(list: IList): Observable<IList> {
     console.log(list);
-    return this.httpClient.post<List>('http://localhost:3000/lists', list);
+    return this.httpClient.post<IList>('http://localhost:3000/lists', list);
   }
 
   removeList(id: string) {
