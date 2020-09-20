@@ -1,20 +1,18 @@
 import Dexie from 'dexie';
-import { IList } from '../lists/list.model';
+import {IReport} from '../reports/report.model';
 
-export class ListDatabase extends Dexie {
-  lists: Dexie.Table<IList, number>;
+export class ReportDatabase extends Dexie {
+  reports: Dexie.Table<IReport, string>;
 
   constructor() {
-    super('ListsDatabase');
-
-    var db = this;
+    super('reportsDatabase');
 
     this.version(1).stores({
-        lists: '_id,title',
+      reports: '_id,description,notes',
     });
 
-    this.lists = this.table('lists');
+    this.reports = this.table('reports');
   }
 }
 
-export var db = new ListDatabase();
+export let db = new ReportDatabase();

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { IList } from './lists/list.model';
-import { ListsService } from './lists/lists.service';
-import { db } from './indexedDb/db';
+import {Component, OnInit} from '@angular/core';
+import {IReport} from './reports/report.model';
+import {ReportsService} from './reports/reports.service';
+import {db} from './indexedDb/db';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,37 +10,64 @@ import { db } from './indexedDb/db';
 })
 export class AppComponent implements OnInit {
   title = 'pwa-offline';
-  lists: Array<IList> = new Array();
+  reports: Array<IReport> = [];
 
-  constructor(private listsService: ListsService) {}
+  constructor(private reportsService: ReportsService) {
+  }
 
   async ngOnInit(): Promise<void> {
-    this.listsService.getAll().subscribe((data: Array<IList>) => {
-      this.lists = data;
-      this.addAllToIndexedDb(data);
+    this.reportsService.getAll().subscribe(
+      (data: Array<IReport>) => {
+        this.reports = data;
+        this.addAllToIndexedDb(data);
+      },
+      async (error) => {
+        console.log('Error fetching all reports: ' + error);
+        this.reports = await db.reports.toArray();
+      }
+    );
+  }
+
+  async addAllToIndexedDb(data: IReport[]): Promise<string> {
+    return db.reports.bulkPut(data);
+    // return db.reports.bulkAdd(data);
+  }
+
+  async addReport(description: string, notes: string): Promise<void> {
+    await this.reportsService
+      .createReport({description, notes})
+      .subscribe(
+        (data: IReport) => {
+          this.reports.push({...data});
+          db.reports.add(data);
+          console.log('(Subscribe) Added Report: ');
+        },
+        (error) => {
+          console.log('Error adding report: ' + error);
+        },
+        () => {
+          console.log('Complete ??: ');
+        }
+      );
+  }
+
+  async removeReport(id: string): Promise<void> {
+    await db.reports.delete(id);
+    await this.reportsService.removeReport(id).subscribe((data: IReport) => {
     });
   }
 
-  async addAllToIndexedDb(data: IList[]) {
-    //    await db.lists.bulkAdd(data);
-    //    console.log(JSON.stringify(data));
-    await db.lists.bulkAdd(data);
-  }
-
-  addList(newList: string) {
-    this.listsService
-      .createList({ title: newList })
-      .subscribe((data: IList) => {
-        this.lists.push({ ...data });
-        db.lists.add(data)
-      });
-  }
-
-  removeList(id: string) {
-    this.listsService.removeList(id).subscribe((data: IList) => {
-      this.listsService.getAll().subscribe((newData: Array<IList>) => {
-        this.lists = newData;
-      });
-    });
+  async updateReportNotes(report: IReport, reportNewNotes: string): Promise<void> {
+    await this.reportsService
+      .patchReportNotes({...report, notes: reportNewNotes})
+      .subscribe(
+        async (data: IReport) => {
+          console.log(`Update report Subscription: ${JSON.stringify(data)}`);
+          await db.reports.update(report, {notes: reportNewNotes});
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
   }
 }

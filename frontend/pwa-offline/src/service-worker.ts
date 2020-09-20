@@ -1,11 +1,13 @@
 /// <reference lib="es2018" />
 /// <reference lib="webworker" />
-import { precacheAndRoute } from 'workbox-precaching';
-import { clientsClaim, skipWaiting } from 'workbox-core';
-import { registerRoute } from 'workbox-routing';
-import { CacheFirst, StaleWhileRevalidate } from 'workbox-strategies';
-import { ExpirationPlugin } from 'workbox-expiration';
+import {precacheAndRoute} from 'workbox-precaching';
+import {clientsClaim, skipWaiting} from 'workbox-core';
+import {registerRoute} from 'workbox-routing';
+import {CacheFirst, StaleWhileRevalidate} from 'workbox-strategies';
+import {ExpirationPlugin} from 'workbox-expiration';
+import {Queue} from 'workbox-background-sync';
 
+const queue = new Queue('myQueue');
 declare const self: ServiceWorkerGlobalScope;
 
 skipWaiting();
@@ -21,7 +23,7 @@ if (process.env.NODE_ENV === 'production') {
 
   registerRoute(
     // Cache style resources, i.e. CSS files.
-    ({ request }) => request.destination === 'document',
+    ({request}) => request.destination === 'document',
     // Use cache but update in the background.
     new StaleWhileRevalidate({
       // Use a custom cache name.
@@ -30,7 +32,7 @@ if (process.env.NODE_ENV === 'production') {
   );
 
   registerRoute(
-    ({ request }) => request.destination === 'script',
+    ({request}) => request.destination === 'script',
     new StaleWhileRevalidate({
       // Use a custom cache name.
       cacheName: 'script-cache',
@@ -39,7 +41,7 @@ if (process.env.NODE_ENV === 'production') {
 
   registerRoute(
     // Cache style resources, i.e. CSS files.
-    ({ request }) => request.destination === 'style',
+    ({request}) => request.destination === 'style',
     // Use cache but update in the background.
     new StaleWhileRevalidate({
       // Use a custom cache name.
@@ -49,7 +51,7 @@ if (process.env.NODE_ENV === 'production') {
 
   registerRoute(
     // Cache image files.
-    ({ request }) => request.destination === 'image',
+    ({request}) => request.destination === 'image',
     // Use the cache if it's available.
     new CacheFirst({
       // Use a custom cache name.
@@ -65,5 +67,30 @@ if (process.env.NODE_ENV === 'production') {
     })
   );
 
+  self.addEventListener('fetch', (event) => {
+    // Clone the request to ensure it's safe to read when
+    // adding to the Queue.
+    const promiseChain = fetch(event.request.clone())
+      .catch((err) => {
+        return queue.pushRequest({request: event.request});
+      });
+
+    event.waitUntil(promiseChain);
+    return promiseChain;
+  });
+
+
+  /*  const bgSyncPlugin = new BackgroundSyncPlugin('myQueueName', {
+      maxRetentionTime: 24 * 60 // Retry for max of 24 Hours (specified in minutes)
+    });
+
+    registerRoute(
+      /\/api\/reports/,
+      new NetworkOnly({
+        plugins: [bgSyncPlugin]
+      }),
+      'POST'
+    );
+  */
   precacheAndRoute(self.__WB_MANIFEST);
 }

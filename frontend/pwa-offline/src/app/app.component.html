@@ -1,13 +1,21 @@
-<input
-  #newList
-  (keyup.enter)="addList(newList.value)"
-  (blur)="addList(newList.value); newList.value = ''"
-/>
+<label>
+  <input #reportDescription placeholder="description" />
+</label>
+<label>
+  <input #reportNotes placeholder="notes" />
+</label>
 
-<button (click)="addList(newList.value)">Add</button>
+<button (click)="addReport(reportDescription.value, reportNotes.value)">
+  Add
+</button>
 
 <ul>
-  <li *ngFor="let list of lists">
-    {{list._id}} | {{ list.title }} |<button (click)="removeList(list._id)">Remove</button>
+  <li *ngFor="let report of reports">
+    {{ report._id }} | {{ report.description }} | {{ report.notes }}|
+    <button (click)="removeReport(report._id)">Remove</button>
+    <label>
+      <input #reportNewNotes placeholder="new notes" />
+    </label>
+    <button (click)="updateReportNotes(report, reportNewNotes.value)">Update Notes</button>
   </li>
 </ul>
