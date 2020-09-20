@@ -20,16 +20,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c45190d4-e490-477c-88bf-09bdb9bd745e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/backend/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/models/list.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/models/task.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/models/task.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/mongoose.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/mongoose.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pwa-offline/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pwa-offline/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pwa-offline/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pwa-offline/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pwa-offline/src/app/indexedDb/db.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pwa-offline/src/app/indexedDb/db.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pwa-offline/src/app/lists/list.model.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pwa-offline/src/app/lists/lists.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pwa-offline/src/service-worker.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pwa-offline/src/service-worker.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/angular-workbox-pwa-offline.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/dexie/CODE_OF_CONDUCT.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/dexie/CONTRIBUTING.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/dexie/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/dexie/NOTICE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/dexie/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/dexie/SECURITY.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/dexie/dist/dexie.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/dexie/dist/dexie.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/dexie/dist/dexie.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/dexie/dist/dexie.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/dexie/dist/dexie.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/dexie/dist/dexie.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/dexie/dist/dexie.mjs.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/dexie/package.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +64,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="ts.external.directory.path" value="C:\Users\diogo\OneDrive\Documentos\Projetos\angular-workbox-pwa-offline\frontend\pwa-offline\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="C:\Users\diogo\AppData\Local\JetBrains\Toolbox\apps\WebStorm\ch-0\202.7319.49\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -68,7 +78,8 @@
       <workItem from="1600500680644" duration="11844000" />
       <workItem from="1600531217033" duration="8657000" />
       <workItem from="1600610623606" duration="13355000" />
-      <workItem from="1600627332277" duration="337000" />
+      <workItem from="1600627332277" duration="1874000" />
+      <workItem from="1600629285956" duration="80000" />
     </task>
     <servers />
   </component>
