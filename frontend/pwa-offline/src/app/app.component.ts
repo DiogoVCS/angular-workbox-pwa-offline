@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {IReport} from './reports/report.model';
 import {ReportsService} from './reports/reports.service';
 import {db} from './indexedDb/db';
+import {Platform} from '@angular/cdk/platform';
+import {MatBottomSheet} from "@angular/material/bottom-sheet";
 
 @Component({
   selector: 'app-root',
@@ -11,8 +13,9 @@ import {db} from './indexedDb/db';
 export class AppComponent implements OnInit {
   title = 'pwa-offline';
   reports: Array<IReport> = [];
+  private promptEvent: any;
 
-  constructor(private reportsService: ReportsService) {
+  constructor(private reportsService: ReportsService, private bottomSheet: MatBottomSheet, private platform: Platform) {
   }
 
   async ngOnInit(): Promise<void> {
@@ -70,4 +73,16 @@ export class AppComponent implements OnInit {
         }
       );
   }
+}
+
+export interface BeforeInstallPromptEvent extends Event {
+  readonly platforms: Array<string>;
+  readonly userChoice: Promise<UserChoice>;
+
+  prompt(): Promise<void>;
+}
+
+export interface UserChoice {
+  outcome: 'accepted' | 'dismissed';
+  platform: string;
 }
