@@ -3,3 +3,8 @@ export interface IReport {
   notes: string;
   _id?: string;
 }
+
+
+export class Report {
+
+}

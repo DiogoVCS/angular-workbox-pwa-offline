@@ -2,8 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {IReport} from './reports/report.model';
 import {ReportsService} from './reports/reports.service';
 import {db} from './indexedDb/db';
-import {Platform} from '@angular/cdk/platform';
-import {MatBottomSheet} from "@angular/material/bottom-sheet";
+import {TaskModel} from './tasks/task.model';
 
 @Component({
   selector: 'app-root',
@@ -13,9 +12,8 @@ import {MatBottomSheet} from "@angular/material/bottom-sheet";
 export class AppComponent implements OnInit {
   title = 'pwa-offline';
   reports: Array<IReport> = [];
-  private promptEvent: any;
 
-  constructor(private reportsService: ReportsService, private bottomSheet: MatBottomSheet, private platform: Platform) {
+  constructor(private reportsService: ReportsService) {
   }
 
   async ngOnInit(): Promise<void> {
@@ -66,23 +64,27 @@ export class AppComponent implements OnInit {
       .subscribe(
         async (data: IReport) => {
           console.log(`Update report Subscription: ${JSON.stringify(data)}`);
+          await this.updateTasksIndexedDb();
           await db.reports.update(report, {notes: reportNewNotes});
         },
         (error) => {
-          console.log(error);
+          console.log('ERROR');
         }
       );
   }
-}
 
-export interface BeforeInstallPromptEvent extends Event {
-  readonly platforms: Array<string>;
-  readonly userChoice: Promise<UserChoice>;
+  private async updateTasksIndexedDb(): Promise<void> {
+    console.log('update Tasks Indexed Db');
+    const task = new TaskModel('someTitle', 'someReportId', true, 'someId');
+    task.additionalFields = [
+      {
+        _id: 'id1', description: 'description1', type: 'type1',
+      },
+      {
+        _id: 'id2', description: 'description2', type: 'type2',
+      }
+    ];
 
-  prompt(): Promise<void>;
-}
-
-export interface UserChoice {
-  outcome: 'accepted' | 'dismissed';
-  platform: string;
+//    await task.save();
+  }
 }

@@ -5,6 +5,7 @@ const mongoose = require('./database/mongoose');
 
 const Report = require('./database/models/report');
 const Task = require('./database/models/task');
+const AdditionalField = require('./database/models/aditional-field');
 
 app.use(express.json());
 
@@ -50,7 +51,7 @@ app.get('/api/reports/:reportId', (req, res) => {
 app.patch('/api/reports/:reportId', (req, res) => {
     Report.findOneAndUpdate({_id: req.params.reportId}, {$set: req.body})
         .then((report) => {
-          console.log(`Updated report: ${req.params.reportId} with notes ${req.body.notes} plus ${req.method}`)
+            console.log(`Updated report: ${req.params.reportId} with notes ${req.body.notes} plus ${req.method}`)
             res.send({...report._doc, notes: req.body.notes})
         })
         .catch((error) => console.log(error));
