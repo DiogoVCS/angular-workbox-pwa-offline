@@ -20,16 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c44de2af-c288-4f2e-9453-80c7d80e6638" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/database/models/aditional-field.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/pwa-offline/src/app/aditional-fields/additional-field.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/pwa-offline/src/app/tasks/task.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pwa-offline/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pwa-offline/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pwa-offline/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pwa-offline/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pwa-offline/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pwa-offline/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pwa-offline/src/app/indexedDb/db.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pwa-offline/src/app/indexedDb/db.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pwa-offline/src/app/reports/report.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pwa-offline/src/app/reports/report.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pwa-offline/src/app/tasks/task.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pwa-offline/src/app/tasks/task.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pwa-offline/src/service-worker.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pwa-offline/src/service-worker.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +83,10 @@
       <workItem from="1601731796142" duration="2328000" />
       <workItem from="1601824455141" duration="1693000" />
       <workItem from="1602256474928" duration="49000" />
-      <workItem from="1602418705475" duration="5476000" />
+      <workItem from="1602418705475" duration="8048000" />
+      <workItem from="1602765256090" duration="26000" />
+      <workItem from="1602766576788" duration="4351000" />
+      <workItem from="1602839450265" duration="982000" />
     </task>
     <servers />
   </component>
@@ -127,26 +123,26 @@
       <screen x="1920" y="30" width="1920" height="1050" />
     </state>
     <state x="2660" y="310" width="564" height="490" key="FileChooserDialogImpl/0.30.1920.1050/1920.30.1920.1050@1920.30.1920.1050" timestamp="1601457273096" />
-    <state width="1899" height="278" key="GridCell.Tab.0.bottom" timestamp="1602423906347">
+    <state width="1899" height="433" key="GridCell.Tab.0.bottom" timestamp="1602424190389">
       <screen x="1920" y="30" width="1920" height="1050" />
     </state>
     <state width="1899" height="278" key="GridCell.Tab.0.bottom/0.30.1536.834/1920.30.1920.1050@1920.30.1920.1050" timestamp="1600635085288" />
-    <state width="1899" height="278" key="GridCell.Tab.0.bottom/0.30.1920.1050/1920.30.1920.1050@1920.30.1920.1050" timestamp="1602423906347" />
-    <state width="1899" height="278" key="GridCell.Tab.0.center" timestamp="1602423906347">
+    <state width="1899" height="433" key="GridCell.Tab.0.bottom/0.30.1920.1050/1920.30.1920.1050@1920.30.1920.1050" timestamp="1602424190389" />
+    <state width="1899" height="433" key="GridCell.Tab.0.center" timestamp="1602424190389">
       <screen x="1920" y="30" width="1920" height="1050" />
     </state>
     <state width="1899" height="278" key="GridCell.Tab.0.center/0.30.1536.834/1920.30.1920.1050@1920.30.1920.1050" timestamp="1600635085288" />
-    <state width="1899" height="278" key="GridCell.Tab.0.center/0.30.1920.1050/1920.30.1920.1050@1920.30.1920.1050" timestamp="1602423906347" />
-    <state width="1899" height="278" key="GridCell.Tab.0.left" timestamp="1602423906347">
+    <state width="1899" height="433" key="GridCell.Tab.0.center/0.30.1920.1050/1920.30.1920.1050@1920.30.1920.1050" timestamp="1602424190389" />
+    <state width="1899" height="433" key="GridCell.Tab.0.left" timestamp="1602424190389">
       <screen x="1920" y="30" width="1920" height="1050" />
     </state>
     <state width="1899" height="278" key="GridCell.Tab.0.left/0.30.1536.834/1920.30.1920.1050@1920.30.1920.1050" timestamp="1600635085287" />
-    <state width="1899" height="278" key="GridCell.Tab.0.left/0.30.1920.1050/1920.30.1920.1050@1920.30.1920.1050" timestamp="1602423906347" />
-    <state width="1899" height="278" key="GridCell.Tab.0.right" timestamp="1602423906347">
+    <state width="1899" height="433" key="GridCell.Tab.0.left/0.30.1920.1050/1920.30.1920.1050@1920.30.1920.1050" timestamp="1602424190389" />
+    <state width="1899" height="433" key="GridCell.Tab.0.right" timestamp="1602424190389">
       <screen x="1920" y="30" width="1920" height="1050" />
     </state>
     <state width="1899" height="278" key="GridCell.Tab.0.right/0.30.1536.834/1920.30.1920.1050@1920.30.1920.1050" timestamp="1600635085288" />
-    <state width="1899" height="278" key="GridCell.Tab.0.right/0.30.1920.1050/1920.30.1920.1050@1920.30.1920.1050" timestamp="1602423906347" />
+    <state width="1899" height="433" key="GridCell.Tab.0.right/0.30.1920.1050/1920.30.1920.1050@1920.30.1920.1050" timestamp="1602424190389" />
     <state width="1899" height="344" key="GridCell.Tab.1.bottom" timestamp="1602421553846">
       <screen x="1920" y="30" width="1920" height="1050" />
     </state>
@@ -210,7 +206,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/frontend/pwa-offline/src/app/indexedDb/db.ts</url>
           <line>22</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

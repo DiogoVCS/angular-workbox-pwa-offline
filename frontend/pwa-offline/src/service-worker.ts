@@ -70,7 +70,10 @@ if (process.env.NODE_ENV === 'production') {
   self.addEventListener('fetch', (event) => {
     // Clone the request to ensure it's safe to read when
     // adding to the Queue.
-    if (!navigator.onLine && event.request.method !== 'GET') {
+    event.preventDefault();
+
+    if (event.request.method !== 'GET') {
+    // if (!navigator.onLine && event.request.method !== 'GET') {
       const promiseChain = fetch(event.request.clone())
         .catch((err) => {
           return queue.pushRequest({request: event.request});
